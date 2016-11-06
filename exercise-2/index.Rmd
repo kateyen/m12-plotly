@@ -1,0 +1,26 @@
+
+
+``` {r, echo = FALSE, message = FALSE}
+library(plotly)
+
+Primates <- c('Potar monkey', 'Gorilla', 'Human', 'Rhesus monkey', 'Chimp') 
+Bodywt <- c(10.0, 207.0, 62.0, 6.8, 52.2) 
+Brainwt <- c(115, 406, 1320, 179, 440) 
+data <- data.frame(Primates, Bodywt, Brainwt)
+
+p <- plot_ly(data, x = ~Bodywt, y = ~Brainwt, type = 'scatter',
+             mode = 'marker', hoverinfo = 'text',
+             textfont = list(color = '00FF00', size = 16)) %>%
+    layout(title = 'Primates Brain and Body Weight', 
+           xaxis = list(title = 'Body Weight',
+                        zeroline = TRUE,
+                        range = c(0,250)),
+           yaxis = list(title = 'Brain Weight',
+                        range = c(0, 1400)))
+
+
+```
+
+#This is a graph of Primates Brain and Body Weight
+
+`r p`
